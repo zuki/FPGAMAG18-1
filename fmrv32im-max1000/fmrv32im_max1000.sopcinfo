@@ -5,11 +5,11 @@
  version="1.0"
  fabric="QSYS">
  <!-- Format version 18.1 625 (Future versions may contain additional information.) -->
- <!-- 2020.04.19.18:13:38 -->
+ <!-- 2020.04.20.10:30:59 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1587287618</value>
+  <value>1587346259</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -2254,6 +2254,14 @@ parameters are a RESULT of the module parameters. -->
  <module name="fmrv32im" kind="fmrv32im" version="1.0" path="fmrv32im">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
+  <parameter name="MADD33_ADDON">
+   <type>int</type>
+   <value>0</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>

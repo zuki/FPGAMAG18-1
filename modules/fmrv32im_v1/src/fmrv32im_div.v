@@ -62,15 +62,16 @@ module fmrv32im_div
              end
            S_EXEC:
              begin
-                if(!quotient_mask) begin
+                if(!quotient_mask)
                    state <= S_FIN;
+                else begin
+                   if(divisor <= dividend) begin
+                      dividend <= dividend - divisor;
+                      quotient <= quotient | quotient_mask;
+                   end
+                   divisor <= divisor >> 1;
+                   quotient_mask <= quotient_mask >> 1;
                 end
-                if(divisor <= dividend) begin
-                   dividend <= dividend - divisor;
-                   quotient <= quotient | quotient_mask;
-                end
-                divisor <= divisor >> 1;
-                quotient_mask <= quotient_mask >> 1;
              end
            S_FIN:
              begin
@@ -89,7 +90,7 @@ module fmrv32im_div
       end
    end
 
-   assign WAIT  = (state != S_IDLE);
+   assign WAIT  = (state == S_EXEC);
    assign READY = (state == S_FIN);
    assign RD    = (reg_inst_div)?((outsign)?-quotient:quotient):
 		  ((outsign)?-dividend:dividend);
